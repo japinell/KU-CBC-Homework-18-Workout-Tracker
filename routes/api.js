@@ -54,10 +54,30 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 //
+// Handles the retrieval of statistics
+//
+router.get("/api/workouts/range", (req, res) => {
+  Workout.find({})
+    .sort({ day: -1 })
+    .limit(7)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+//
 // Handles the retrieval of the page to post a workout
 //
 router.get("/exercise", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
+//
+// Handles the retrieval of the page to show the statistics
+//
+router.get("/stats", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
 module.exports = router;
