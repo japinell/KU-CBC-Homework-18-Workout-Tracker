@@ -21,7 +21,6 @@ router.get("/stats", function (req, res) {
 //
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
-    .sort({ day: -1 })
     .then((data) => {
       res.json(data);
     })
