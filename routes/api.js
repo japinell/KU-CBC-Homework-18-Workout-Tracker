@@ -17,6 +17,18 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 //
+// Handles the update of a single workout
+//
+router.put("/api/workouts/:id", (req, res) => {
+  Workout.update({ _id: req.params.id }, { $set: { exercises: req.body } })
+    .then((document) => {
+      res.json(document);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+//
 // Handles the posting of multiple workouts
 //
 router.post("/api/workout/bulk", ({ body }, res) => {
