@@ -2,11 +2,12 @@
 // Required libraries
 //
 const router = require("express").Router();
+const path = require("path");
 const Workout = require("../models/Workout.js");
 //
 // Handles the posting of a single workout
 //
-router.post("/api/workout", ({ body }, res) => {
+router.post("/api/workouts", ({ body }, res) => {
   Workout.create(body)
     .then((document) => {
       res.json(document);
@@ -39,6 +40,12 @@ router.get("/api/workouts", (req, res) => {
     .catch((err) => {
       res.status(400).json(err);
     });
+});
+//
+// Handles the retrieval of the page to post a workout
+//
+router.get("/exercise", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
 
 module.exports = router;
