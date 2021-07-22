@@ -29,18 +29,6 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 //
-// Handles the posting of multiple workouts
-//
-router.post("/api/workout/bulk", ({ body }, res) => {
-  Workout.insertMany(body)
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
-//
 // Handles the retrieval of all workouts
 //
 router.get("/api/workouts", (req, res) => {
