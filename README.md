@@ -1,4 +1,4 @@
-# Unit 18 Nosql Homework: Workout Tracker
+# Unit 18 NoSQL Homework: Workout Tracker
 
 This is a **workout tracker** web application that uses **Mongo** as the persistent storage, **Mongoose** as the object modelling, **ExpressJS** as the web framework, and **NodeJS** as the Javascript runtime environment. The application is described in the following user story, business context, and acceptance criteria:
 
@@ -37,11 +37,19 @@ On the technical architecture, the application features the use of the MVC parad
 
 The application uses a _Workout_ model hosted on a **NoSQL** database, **MongoDb**. The model structure includes the following fields: _day_, of type Date; and an array of _exercises_, documents defining the _type_ of exercise, _name_, _duration_, _distance_, _weight_, _reps_, and _sets_. Because of the flexibility that a **NoSQL** database provides, the model structured is altered during program execution to include an added field to define the _totalDuration_ of the workout as an **aggregation pipeline**, or the sum of the individual exercises' duration.
 
+![The workout schema for the application.](./assets/images/workout-schema.png)
+
 Functionally, the application allows users to perform the following CRUD operations:
 
 - Create a workout
 - Retrieve the last or all workouts
 - Update a workout by id
+
+![The application visual aspect.](./assets/images/visual-aspect.png)
+
+The application also allows users to view the workout statistics corresponding to weight lifting and duration by day using line and bar charts.
+
+![The application dashboard.](./assets/images/workout-dashboard.png)
 
 ## Installation
 
@@ -70,6 +78,8 @@ node server.js
 ## Usage
 
 The application has been coded to perform CRUD operations against a live **MongoDb** database using the most common HTTP methods for REST APIs: _GET_, _POST_, and _PUT_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, a live instance can be tested in [Heroku](https://ku-cbc-workout-tracker.herokuapp.com/), which connects to a live **MongoDb Atlas** database.
+
+In addition, the application has been coded with a _mobile first_ approach in mind.
 
 ## License
 
