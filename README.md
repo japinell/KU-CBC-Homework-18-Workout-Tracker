@@ -81,7 +81,7 @@ node server.js
 
 ## Usage
 
-The application has been coded to perform CRUD operations against a live **MongoDb** database using the most common HTTP methods for REST APIs: _GET_, _POST_, and _PUT_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, a live instance can be tested in [Heroku](https://ku-cbc-workout-tracker.herokuapp.com/), which connects to a live **MongoDb Atlas** database.
+The application has been coded to perform CRUD operations against a live **MongoDb** database using the most common HTTP methods for REST APIs: _GET_, _POST_, and _PUT_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, the application has been deployed to [Heroku](https://ku-cbc-workout-tracker.herokuapp.com/) through a **CI/CD** pipeline, which also connects to a live **MongoDb Atlas** database.
 
 In addition, the application has been coded with a _mobile first_ approach in mind.
 
