@@ -1,6 +1,6 @@
 # Unit 18 Nosql Homework: Workout Tracker
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+This is a **workout tracker** web application that uses **Mongo** as the persistent storage, **Mongoose** as the object modelling, **ExpressJS** as the web framework, and **NodeJS** as the Javascript runtime environment. The application is described in the following user story, business context, and acceptance criteria:
 
 ## User Story
 
@@ -24,38 +24,71 @@ The user should be able to:
 
 - View the total duration of each workout from the past seven workouts on the `stats` page.
 
-> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
+## Implementation
 
-To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
-- [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
+## Features
 
-- [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
+On the technical architecture, the application features the use of the MVC paradigm with **Database Schemas**, the logical structure of the database, defined with **Mongoose** and persisting in **MongoDb**; **HTML** to enable the input and rendering of the application data; **Express.Js** for route handling, and **Node.Js** for Javascript running.
 
-## Commit Early and Often
+The application uses a _Workout_ model hosted on a **NoSQL** database, **MongoDb**. The model structure includes the following fields: _day_, of type Date; and an array of _exercises_, documents defining the _type_ of exercise, _name_, _duration_, _distance_, _weight_, _reps_, and _sets_. Because of the flexibility that a **NoSQL** database provides, the model structured is altered during program execution to include an added field to define the _totalDuration_ of the workout as an **aggregation pipeline**, or the sum of the individual exercises' duration.
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
+Functionally, the application allows users to perform the following CRUD operations:
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+- Create a workout
+- Retrieve the last or all workouts
+- Update a workout by id
 
-2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
+## Installation
 
-Follow these guidelines for committing:
+The application requires [Node.Js](https://nodejs.org/en/) Runtime Library, [Express.js](https://www.npmjs.com/package/express), and [Mongoose](https://www.npmjs.com/package/mongoose) libraries, along with a running _local_ instance of [MongoDb](https://www.mongodb.com/), or a _cloud_ instance of **MongoDb** known as [Atlas](https://www.mongodb.com/cloud/atlas).
 
-- Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+A JSON file containing these dependencies is included with this project. To set up the development environment for the application, simply run the following command:
 
-- Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
+```bash
+npm install
+```
 
-- Don't commit half-done work, for the sake of your collaborators (and your future self!).
+Using **Node.Js** console, run the following command to seed the database with sample data:
 
-- Test your application before you commit to ensure functionality at every step in the development process.
+```bash
+npm run seed
+```
 
-We want you to have well over 200 commits by graduation, so commit early and often!
+A video demonstrating how to seed a similar database from the command line is provided [here](https://drive.google.com/file/d/1cxB7I41wX6AWwSDz2RDOpIf9_2EbgBuZ/view).
 
-## Submission on BCS
+Once the database is created and seeded with sample data, run the following command to start the application:
 
-You are required to submit the following:
+```bash
+node server.js
+```
 
-- The URL to the deployed application
+## Usage
 
-- The URL to the GitHub repository
+The application has been coded to perform CRUD operations against a live **MongoDb** database using the most common HTTP methods for REST APIs: _GET_, _POST_, and _PUT_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, a live instance can be tested in [Heroku](https://ku-cbc-workout-tracker.herokuapp.com/), which connects to a live **MongoDb Atlas** database.
+
+## License
+
+This project is licensed under The MIT License. Refer to https://opensource.org/licenses/MIT for more information of what you can and cannot do with this project. See contact information below if you have questions, comments, or suggestions for the project.
+
+## Contributing Guidelines
+
+Want to contribute to this project? You may clone or fork the project in GitHub. Note the licesing information referred in this file.
+
+## Contact Information
+
+For questions, comments, or suggestions, please contact me by E-Mail:
+
+japinell@yahoo.com
+
+Check out my other **cool** projects in GitHub - https://github.com/japinell
+
+## License
+
+This application is licensed under the following license:
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)(https://opensource.org/licenses/MIT)
