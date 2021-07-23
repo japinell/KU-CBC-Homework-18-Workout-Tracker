@@ -39,6 +39,10 @@ The application uses a _Workout_ model hosted on a **NoSQL** database, **MongoDb
 
 ![The workout schema for the application.](./assets/images/workout-schema.png)
 
+The following screenshot exemplifies some of the application APIs:
+
+![The application API definition.](./assets/images/workout-api.png)
+
 Functionally, the application allows users to perform the following CRUD operations:
 
 - Create a workout
